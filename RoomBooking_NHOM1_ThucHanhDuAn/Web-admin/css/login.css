@@ -1,0 +1,29 @@
+.bg-gradient{
+    background: url(../img/background_login.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(253, 67, 67, 0.3)), url("../img/background_login.jpg");
+    /* opacity: 0.8; */
+}
+#login {
+
+    width: 250%;
+    margin-left: 170%;
+}
+#back {
+    background-color: #eb8100;
+    width: 250%;
+    height: 110%;
+    border: #eb8100;
+    /* top: 68.2%;
+    position: absolute; */
+    /* border: none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 30px;
+    font-size: 80%; */
+}
