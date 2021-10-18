@@ -8,8 +8,9 @@
 
 ## 3. Ngày thực hiện: 
 03/09/2021 -> Ngày hoàn thành: 10/10/2021
+## 4. Rẽ Branch: Master để xem code
 
-## 4. Người thực hiện: 
+## 5. Người thực hiện: 
 1. Trần Đình Hiếu
 2. Nguyễn Trường Sinh
 3. Hồ Thị Yến Nhi
