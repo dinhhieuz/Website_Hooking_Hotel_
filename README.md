@@ -1,4 +1,6 @@
-<h1 style="color=pink"> WebSite Booking Hotel</h1>
+<marquee scrollamount=15>Have a nice day !!! <b>nhìn gì đấm ớ :)</b></marquee>
+
+<center><h1 style="color:#ff00ae"> Website Booking Hotel</h1></center>
 
 ## 1. URL Website: https://bookingvippro.000webhostapp.com/
 ## 2. Mô tả:
