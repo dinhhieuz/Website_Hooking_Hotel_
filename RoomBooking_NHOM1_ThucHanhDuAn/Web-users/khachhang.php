@@ -128,6 +128,7 @@
 
             //----- Tạo mới đặt phòng -------
             // Tạo thông tin khách hàng ở bảng "KHACHHANG"
+            // Hàm LPAD in MySQL: cộng kí tự bên trái
             $sql_create_khachhang = "   INSERT INTO khachhang (MaKhachHang, GioiTinh, TenKhachHang, NgaySinh, CMND, SDT, DiaChi) 
                                         SELECT Concat(LEFT(Max(MaKhachHang),2), LPAD(CONVERT(RIGHT(Max(MaKhachHang),8-2),int)+1,6,'0')), 
                                                 ".$GioiTinh." , '".$TenKhachHang."' , '".$NgaySinh."' , '".$CMND."' , '".$SDT."' ,'".$DiaChi."' 
@@ -231,6 +232,9 @@
     function phpAlert($msg) {
         echo '<script type="text/javascript">alert("' . $msg . '")</script>';
     }
+    // xét ngày sinh
+    $min_date = date('Y-m-d', strtotime(' - 100 years'));
+    $max_date = date('Y-m-d', strtotime(' - 18 years'));
 ?>
 
 
@@ -308,17 +312,18 @@
             <div class="col-lg-12">
                 <div class="heading"><h1>Điền thông tin của bạn</h1></div>
             </div>
-            
             <div class="col-md-2 col-md-offset-1 "></div>
             <div class="col-md-6" style="margin-bottom: 30px;">
                 <form name="form1" id="ff" method="post" action="#">
+                    <i style="font-weight: 300; color: #e33636">(*): thông tin bắt buộc nhập</i>
+                    <br><br>
                     <div class="form-group">
-                        <label for="fname">Họ và Tên: &ensp; </label>
+                        <label for="fname">Họ và Tên <b style="color:red">*</b>: &ensp; <i style="font-weight: 300; color: #838785">(không được nhập kí tự đặt biệt)</i></label>
                         <span style="color: red ; font-style: oblique;"> <?php echo $tenkhachhangErr; ?> </span>  
                         <input type="text" class="form-control" placeholder="Họ và Tên: *" name="input_tenkhachhang" id="name" required data-validation-required-message="Vui lòng điền tên của bạn">
                     </div>
                     <div class="form-group">
-                        <label for="fname">Giới tính: &ensp; </label>
+                        <label for="fname">Giới tính <b style="color:red">*</b>: &ensp; </label>
                         <select name="input_gioitinh"class="form-control" >
                                     <option value="0">Nam</option>
                                     <option value="1">Nữ</option>
@@ -326,22 +331,22 @@
         
                     </div>
                     <div class="form-group"> 
-                        <label for="fname">Ngày sinh: &ensp; </label>
+                        <label for="fname">Ngày sinh <b style="color:red">*</b>: &ensp; <i style="font-weight: 300; color: #838785">(Phải lớn hoặc bằng 18 tuổi và nhỏ hơn 100 tuổi )</i> </label>
                         <span style="color: red ; font-style: oblique;"> <?php echo $ngaysinhErr; ?> </span>  
-                        <input type="date" class="form-control" placeholder="Ngày Sinh *" name="input_ngaysinh" id="phone" required data-validation-required-message="Vui lòng điền ngày sinh của bạn">
+                        <input type="date" class="form-control" placeholder="Ngày Sinh *" name="input_ngaysinh" id="phone" required data-validation-required-message="Vui lòng điền ngày sinh của bạn" min="<?=$min_date?>" max="<?=$max_date?>">
                     </div>
                     <div class="form-group">
-                        <label for="fname">CMND: &ensp; </label>
+                        <label for="fname">CMND <b style="color:red">*</b>: &ensp; <i style="font-weight: 300; color: #838785">(phải đủ 9 số)</i></label>
                         <span style="color: red ; font-style: oblique;"> <?php echo $cmndErr; ?> </span>  
                         <input type="text" class="form-control" placeholder="CMND *" name="input_cmnd" id="phone" required data-validation-required-message="Vui lòng điền CMND của bạn">
                     </div>
                     <div class="form-group">
-                        <label for="fname">Số điện thoại: &ensp; </label>
+                        <label for="fname">Số điện thoại <b style="color:red">*</b>: &ensp; <i style="font-weight: 300; color: #838785">(phải đủ 10 số)</i></label>
                         <span style="color: red ; font-style: oblique;"> <?php echo $sdtErr; ?> </span>  
                         <input type="text" class="form-control" placeholder="Số điện thoại *" name="input_sdt" id="phone" required data-validation-required-message="Vui lòng điền số điện thoại của bạn">
                     </div>
                     <div class="form-group">
-                        <label for="fname">Địa chỉ: &ensp; </label>
+                        <label for="fname">Địa chỉ <b style="color:red">*</b>: &ensp; <i style="font-weight: 300; color: #838785">(không được quá 100 kí tự)</i></label>
                         <span style="color: red ; font-style: oblique;"> <?php echo $diachiErr; ?> </span>  
                         <input type="text" class="form-control" placeholder="Địa chỉ " name="input_diachi" id="phone">
                     </div>

@@ -64,7 +64,7 @@
     
     $numbers_date = 0;
     if( isset($_SESSION['start_date']) && isset($_SESSION['end_date']) &&  (strtotime($_SESSION['end_date']) >= strtotime($_SESSION['start_date'])) ){
-        // tính số ngày ở
+        // tính số ngày ở - floor : làm tròn
         $numbers_date = (floor((abs(strtotime($_SESSION['start_date']) - strtotime($_SESSION['end_date']))) / (60*60*24)) + 1);
         // Convert kiểu ngày
         $Show_start_date = date("d-m-Y", strtotime($_SESSION['start_date']));  
