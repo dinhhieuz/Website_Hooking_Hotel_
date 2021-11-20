@@ -74,6 +74,8 @@
         // number-date condition notification
         $note = 'Vui lòng nhập chính xác ngày như hướng dẫn!!! \nChơi vậy mà coi được à :)';
         phpAlert($note);
+        // Quay trở lại trang 
+        header("Refresh:0; url=hethongphong.php");
     }
 
     // Feature: Thông báo bằng JS
